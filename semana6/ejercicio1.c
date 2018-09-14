@@ -3,7 +3,8 @@
 #include<stdio.h>
 
 int main ()
-int i; N=10;
+{
+int i, N=10;
 float estudiantes[N];
 float edad[N];
 float sexo[N];
@@ -11,7 +12,7 @@ float promedio[N];
 float semestre[N];
 int mujer, hombre;
 int primero, segundo, tercero, cuarto, quinto, sexto, septimo, octavo, noveno;
-{
+
 
 printf("Cual es tu edad?: \n");
 for(i=0;i<N;i++){
@@ -34,11 +35,13 @@ scanf("%i", &promedio[i]);
 }
 
 for(i=0; i<N;i++){
-if (sexo[i]==1){mujer++}
-else {hombre++}
+if (sexo[i]==1){mujer++;}
+else {hombre++;}
 }
-printf("El numero de mujeres es: \n", mujere);
+printf("El numero de mujeres es: \n", mujer);
 printf("El numero de hombres es: \n", hombre);
+printf("El promedio es:\n", promedio);
+printf("El numero de estudiantes por semestre es: \n",semestre);
 
 return 0;
 
