@@ -7,10 +7,10 @@ int main ()
 int i, N=10;
 float estudiantes[N];
 float edad[N];
-float sexo[N];
-float promedio[N];
-float semestre[N];
-int mujer, hombre;
+int sexo[N];
+int promedio[N];
+int semestre[N];
+int mujer=0, hombre=0, prom;
 int primero, segundo, tercero, cuarto, quinto, sexto, septimo, octavo, noveno;
 
 
@@ -38,10 +38,21 @@ for(i=0; i<N;i++){
 if (sexo[i]==1){mujer++;}
 else {hombre++;}
 }
-printf("El numero de mujeres es: \n", mujer);
-printf("El numero de hombres es: \n", hombre);
-printf("El promedio es:\n", promedio);
-printf("El numero de estudiantes por semestre es: \n",semestre);
+prom=0;
+for (i=0; i<N;i++){
+prom=prom+promedio[i];
+}
+prom=prom/N;
+
+printf("El numero de mujeres es: %i \n", mujer);
+printf("El numero de hombres es: %i \n", hombre);
+printf("El promedio es: %i \n ", prom);
+printf("El numero de estudiantes por semestre es: %i \n",semestre);
+for (i=0; i<N;i++){
+	if semestre[i]= uno;
+	uno+=1:
+	else if semestre[i]= uno;
+	uno+=1:
 
 return 0;
 
