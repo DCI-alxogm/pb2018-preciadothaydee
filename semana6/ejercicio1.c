@@ -11,7 +11,7 @@ int sexo[N];
 int promedio[N];
 int semestre[N];
 int mujer=0, hombre=0, prom;
-int primero, segundo, tercero, cuarto, quinto, sexto, septimo, octavo, noveno;
+int uno=0, dos=0, tres=0, cuatro=0, cinco=0, seis=0, siete=0, ocho=0, nueve=0;
 
 
 printf("Cual es tu edad?: \n");
@@ -44,16 +44,41 @@ prom=prom+promedio[i];
 }
 prom=prom/N;
 
+for (i=0; i<N;i++){
+	if 
+	(semestre[i]== 1){
+	uno+=1;
+	}else if
+	(semestre[i]== 2){
+	dos+=1;
+	}else if
+	(semestre[i]== 3){
+	tres+=1;
+	}else if
+	(semestre[i]== 4){
+	cuatro+=1;
+	}else if
+	(semestre[i]== 5){
+	cinco+=1;
+	}else if
+	(semestre[i]== 6){
+	seis+=1;
+	}else if 
+	(semestre[i]== 7){
+	siete+=1;
+	}else if
+	(semestre[i]== 8){
+	ocho+=1;
+	}else if
+	(semestre[i]== 9){
+	nueve+=1;
+}
+}
+
 printf("El numero de mujeres es: %i \n", mujer);
 printf("El numero de hombres es: %i \n", hombre);
 printf("El promedio es: %i \n ", prom);
-printf("El numero de estudiantes por semestre es: %i \n",semestre);
-for (i=0; i<N;i++){
-	if semestre[i]= uno;
-	uno+=1:
-	else if semestre[i]= uno;
-	uno+=1:
-
+printf("El numero de estudiantes por semestre es: 1=%i, 2=%i, 3=%i, 4=%i, 5=%i, 6=%i, 7=%i, 8=%i 9=%i \n", uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve);
 return 0;
 
 }
