@@ -5,8 +5,8 @@
 
 int main ()
 {
-int p,a,b,N,k,i,j;
-float fx[i],Intx[i],x[i],sum,dx,h,delta;
+int p,a,b,N,k,i,j,sum,dx,h,delta;
+float fx[i],Intx[i],x[i];
 FILE *datos;
 FILE *resultados;
 datos=fopen("datos.txt","r");
@@ -47,6 +47,8 @@ for(i=0;i<N;i++)
 {
 fprintf(resultados,"%f\t %f \t %f \n",x[i],fx[i],Intx[i]);
 }
+fclose(resultados);
+
 return 0;
 }
 
