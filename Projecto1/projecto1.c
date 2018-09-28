@@ -5,7 +5,7 @@
 /*Se declaran las variables*/
 int main(){
 float G=39.47841,h;
-int n=10000,i,o;
+int n=1000,i,o;
 double a1,a2,a3,a4,a5,a6;
 double a[n],b[n],c[n],x[n],y[n],z[n],r;
 FILE *planeta;
@@ -29,7 +29,7 @@ if(o==1)
 	y[0]=a5;
 	z[0]=a6;
 	resultado=fopen("resultado.txt","w"); 
-		for(i=0;i<n;i++) 
+		for(i=1;i<n;i++) 
 	{
 	  
     	   
