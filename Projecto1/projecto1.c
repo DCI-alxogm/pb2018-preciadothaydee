@@ -5,7 +5,7 @@
 /*Se declaran las variables*/
 int main(){
 float G=39.47841,h;
-int n=1000,i,o;
+int n=10000,i,o;
 double a1,a2,a3,a4,a5,a6;
 double a[n],b[n],c[n],x[n],y[n],z[n],r;
 FILE *planeta;
@@ -29,17 +29,17 @@ if(o==1)
 	y[0]=a5;
 	z[0]=a6;
 	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=0;i<n;i++) 
 	{
 	  
     	   
-	    a[i]=a[i-1]+x[i-1]*h; 
-	    b[i]=b[i-1]+y[i-1]*h;
-	    c[i]=c[i-1]+z[i-1]*h;
+	    a[i]=a[i-1]-x[i-1]*h; 
+	    b[i]=b[i-1]-y[i-1]*h;
+	    c[i]=c[i-1]-z[i-1]*h;
   	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));/*Se calcula el radio con el que se trabajara*/	  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
+	    x[i]=x[i-1]+h*((G*a[i-1])/pow(r,3));
+	    y[i]=y[i-1]+h*((G*b[i-1])/pow(r,3));
+	    z[i]=z[i-1]+h*((G*c[i-1])/pow(r,3));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);/*Se imprimen los resultados para poder graficar*/
 	}
@@ -59,7 +59,7 @@ if(o==2)
 	x[0]=a4;
 	y[0]=a5;
 	z[0]=a6;
-	resultado=fopen("resultado.txt","w"); 
+	resultado=fopen("resultadomercurio.txt","w"); 
 		for(i=1;i<n;i++) 
 	{
 	  
@@ -67,10 +67,10 @@ if(o==2)
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i],2)+pow(b[i],2)+pow(c[i],2));	  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
+  	   r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
+	    x[i]=x[i-1]+h*((G*a[i-1])/pow(r,3));
+	    y[i]=y[i-1]+h*((G*b[i-1])/pow(r,3));
+	    z[i]=z[i-1]+h*((G*c[i-1])/pow(r,3));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
@@ -90,15 +90,16 @@ if(o==3)
 	x[0]=a4;
 	y[0]=a5;
 	z[0]=a6;
-	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<n;i++) 
+	resultado=fopen("resultadovenus.txt","w"); 
+		for(i=0;i<n;i++) 
 	{
+
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i],2)+pow(b[i],2)+pow(c[i],2));	  
+  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
 	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
 	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
 	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
@@ -120,15 +121,15 @@ if(o==4)
 	x[0]=a4;
 	y[0]=a5;
 	z[0]=a6;
-	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<1000;i++) 
+	resultado=fopen("resultadomarte.txt","w"); 
+		for(i=1;i<n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i],2)+pow(b[i],2)+pow(c[i],2));	  
+  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
 	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
 	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
 	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
@@ -150,15 +151,15 @@ if(o==5)
 	x[0]=a4;
 	y[0]=a5;
 	z[0]=a6;
-	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<1000;i++) 
+	resultado=fopen("resultadojupiter.txt","w"); 
+		for(i=1;i<n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i],2)+pow(b[i],2)+pow(c[i],2));	  
+  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
 	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
 	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
 	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
@@ -180,15 +181,15 @@ if(o==6)
 	x[0]=a4;
 	y[0]=a5;
 	z[0]=a6;
-	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<1000;i++) 
+	resultado=fopen("resultadosaturno.txt","w"); 
+		for(i=1;i<n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i],2)+pow(b[i],2)+pow(c[i],2));	  
+  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
 	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
 	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
 	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
@@ -211,15 +212,15 @@ if(o==7)
 	x[0]=a4;
 	y[0]=a5;
 	z[0]=a6;
-	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<1000;i++) 
+	resultado=fopen("resultadourano.txt","w"); 
+		for(i=1;i<n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i],2)+pow(b[i],2)+pow(c[i],2));	  
+  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
 	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
 	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
 	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
@@ -241,15 +242,15 @@ if(o==8)
 	x[0]=a4;
 	y[0]=a5;
 	z[0]=a6;
-	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<1000;i++) 
+	resultado=fopen("resultadoneptuno.txt","w"); 
+		for(i=1;i<n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i],2)+pow(b[i],2)+pow(c[i],2));	  
+  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));  
 	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
 	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
 	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
