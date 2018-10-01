@@ -5,7 +5,7 @@
 /*Se declaran las variables*/
 int main(){
 float G=39.47841,h;
-int n=1000,i,o;
+int n=15000,i,o;
 double a1,a2,a3,a4,a5,a6;
 double a[n],b[n],c[n],x[n],y[n],z[n],r;
 FILE *planeta;
@@ -25,21 +25,21 @@ if(o==1)
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultado.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
 	  
     	   
-	    a[i]=a[i-1]-x[i-1]*h; 
-	    b[i]=b[i-1]-y[i-1]*h;
-	    c[i]=c[i-1]-z[i-1]*h;
-  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));/*Se calcula el radio con el que se trabajara*/	  
-	    x[i]=x[i-1]+h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]+h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]+h*((G*c[i-1])/pow(r,3));
+	    a[i]=a[i-1]+x[i-1]*h; 
+	    b[i]=b[i-1]+y[i-1]*h;
+	    c[i]=c[i-1]+z[i-1]*h;
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);/*Se imprimen los resultados para poder graficar*/
 	}
@@ -53,24 +53,25 @@ if(o==2)
 	printf("Prueba datos iniciales %lf\t %lf\t %lf\t %lf\t %lf\t %lf\t %f\t  \n",a1,a2,a3,a4,a5,a6,h);
 	fclose(planeta);
 	
+	
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultadomercurio.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	   r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
-	    x[i]=x[i-1]+h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]+h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]+h*((G*c[i-1])/pow(r,3));
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
@@ -84,25 +85,25 @@ if(o==3)
 	printf("Prueba datos iniciales %lf\t %lf\t %lf\t %lf\t %lf\t %lf\t %f\t  \n",a1,a2,a3,a4,a5,a6,h);
 	fclose(planeta);
 	
+	
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultadovenus.txt","w"); 
-		for(i=0;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
-
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
@@ -115,24 +116,25 @@ if(o==4)
 	printf("Prueba datos iniciales %lf\t %lf\t %lf\t %lf\t %lf\t %lf\t %f\t  \n",a1,a2,a3,a4,a5,a6,h);
 	fclose(planeta);
 	
+	
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultadomarte.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
@@ -145,24 +147,25 @@ if(o==5)
 	printf("Prueba datos iniciales %lf\t %lf\t %lf\t %lf\t %lf\t %lf\t %f\t  \n",a1,a2,a3,a4,a5,a6,h);
 	fclose(planeta);
 	
+	
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultadojupiter.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
@@ -175,24 +178,25 @@ if(o==6)
 	printf("Prueba datos iniciales %lf\t %lf\t %lf\t %lf\t %lf\t %lf\t %f\t  \n",a1,a2,a3,a4,a5,a6,h);
 	fclose(planeta);
 	
+	
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultadosaturno.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
@@ -206,24 +210,25 @@ if(o==7)
 	printf("Prueba datos iniciales %lf\t %lf\t %lf\t %lf\t %lf\t %lf\t %f\t  \n",a1,a2,a3,a4,a5,a6,h);
 	fclose(planeta);
 	
+	
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultadourano.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));	  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
@@ -236,25 +241,25 @@ if(o==8)
 	printf("Prueba datos iniciales %lf\t %lf\t %lf\t %lf\t %lf\t %lf\t %f\t  \n",a1,a2,a3,a4,a5,a6,h);
 	fclose(planeta);
 	
+	
 	a[0]=a1; 
 	b[0]=a2;
 	c[0]=a3;
-	x[0]=a4;
-	y[0]=a5;
-	z[0]=a6;
+	x[0]=a4*365.242;
+	y[0]=a5*365.242;
+	z[0]=a6*365.242;
 	resultado=fopen("resultadoneptuno.txt","w"); 
-		for(i=1;i<n;i++) 
+		for(i=1;i<=n;i++) 
 	{
 	  
     	   
 	    a[i]=a[i-1]+x[i-1]*h; 
 	    b[i]=b[i-1]+y[i-1]*h;
 	    c[i]=c[i-1]+z[i-1]*h;
-  	    r=sqrt(pow(a[i-1],2)+pow(b[i-1],2)+pow(c[i-1],2));  
-	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3));
-	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3));
-	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3));
-
+  	    r=sqrt(pow(a[i-1],2.0)+pow(b[i-1],2.0)+pow(c[i-1],2.0));/*Se calcula el radio con el que se trabajara*/	  
+	    x[i]=x[i-1]-h*((G*a[i-1])/pow(r,3.0));
+	    y[i]=y[i-1]-h*((G*b[i-1])/pow(r,3.0));
+	    z[i]=z[i-1]-h*((G*c[i-1])/pow(r,3.0));
 	    fprintf(resultado," %lf\t %lf\t %lf\t %lf\t %lf\t %lf\n",a[i],b[i],c[i],x[i],y[i],z[i]);
 	}
 	    fclose(resultado);
