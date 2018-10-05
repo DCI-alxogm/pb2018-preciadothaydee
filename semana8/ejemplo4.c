@@ -15,3 +15,10 @@ exit (0);
 printf("Introduce los elementos del arreglo:");
 for (i=0; i<num;++i);
 {
+scanf("%d", ptr +i);
+sum +=*(ptr+i);
+}
+printf("Sum =%d", sum);
+free(ptr);
+return 0;
+}
