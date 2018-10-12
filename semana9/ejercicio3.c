@@ -1,3 +1,5 @@
+//Sin entrada ni salida
+
 #include<stdio.h>
 void cuadrado();
 int main (){

@@ -1,3 +1,5 @@
+//con entrada y salida
+
 #include<stdio.h>
 float cuadrado(float h);
 int main (){
