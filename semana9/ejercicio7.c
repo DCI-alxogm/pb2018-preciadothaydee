@@ -1,72 +1,77 @@
 #include<stdio.h>
 
+void cubo1();
+float cubo2(float h);
+void cubo3(float x);
+float cubo4();
 
 int main()
 {
-int o;
-printf("Escoge que programa quieres realizar: \nentradaysalida[1] \nsolosalida[2] \nsoloentrada[3] \nsinentradanisalida[4] \n");
-scanf("%i",&o);
-
-if(o==1)
-void cubo (float x);
-return 0;
-}
-void cubo(float x){
-
-	float  xxx;
-	printf("Que numero quieres que se eleve\n");
-	scanf ("%f", &x);
-	xxx=x*x*x;
-	printf("El cubo de %f es igual a %f", x,xxx);
-
-}
-if(o==2)
-float cubo();
-{ 
-	float x3; 
-	x3=cubo(); 
-	printf("%f \n", x3); 
-	return 0; 
-}
-
-float cubo(){ 
-	float x, xxx; 
-	printf("Introduce un número \n"); 
-	scanf("%f", &x);
-	xxx= x*x*x; 
+	int e;
+	float x,x3;
+	float a;
+	float xxx;
 	
-	return xxx; 
-}
+	printf("Elige como quieres que se calcule el programa: \t (1) sin argumentos de entrada ni salida \t (2) con argumentos de entrada y salida\t (3) con argumentos de entrada unicamente\t (4) con argumentos de salida unicamente\n");
+	scanf("%i",&e);
 
-if(o==3)
-void cubo (float x);
+	if(e==1)
+	cubo1();
+	return 1;
 
-{
+
+	if(e==2)
+	
+	
+	printf("Introduce un numero elevarlo al cubo: \n");
+	scanf("%f",&x);
+	x3=x*x*x;
+	printf("El cubo de %f es %f\n",x,x3);
+	return 2;
+
+	if(e==3)
+	
+	
+	printf("Introduce un numero elevarlo al cubo: \n");
+	scanf("%f",&a);
+	cubo3(a);
+	return 3;
+
+
+	if(e==4)
+
+	xxx=cubo4();
+	
+	printf("El cubo de %f es %f\n",xxx);
+	return 4;
+
 return 0;
 }
-void cubo(float x){
-
-	float  xxx;
-	printf("Que numero quieres que se eleve\n");
-	scanf ("%f", &x);
-	xxx=x*x*x;
-	printf("El cubo de %f es igual a %f", x,xxx);
-
-}
-
-if(o==4)
-
-void cubo();
+void cubo1()
 {
-cubo();
-return 0;
+	float x,x3;
+	printf("Introduce un numero elevarlo al cubo: \n");
+	scanf("%f",&x);
+	x3=x*x*x;
+	printf("El cubo de %f es %f\n",x,x3);
 }
-void cubo(){
-float x, x3;
-printf("Que numero quieres elevar\n");
-scanf("%f", &x);
-x3=x*x*x;
-printf("El cubo de %f es %f\n",x,x3);
+float cubo2(float h)
+{
+	return cubo2(h);
 }
+void cubo3(float x)
+{
+	float x3;
+	x3=x*x*x;
+	printf("El cubo de %f es %f\n",x,x3);
+	
+}
+float cubo4()
+{
+	float x,x3;
+	printf("Introduce un numero elevarlo al cubo: \n");
+	scanf("%f",&x);
+	x3=x*x*x;
+	return x3;
 
 }
