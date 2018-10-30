@@ -4,92 +4,71 @@
 
 
 
-void funcion(){
-	float epsilon,x=1;//Se declaran las variables que se utilizaran
-	int N,n=0,i,j,mas;
-	float ti,t2,t3,t4,a,t;
-	char num[25];
+int main(){
+	int i=0,a=0,y,x,N; //Se inicializan los contadores que se usaran
+	float l,r, u, d;
 
-
-	FILE *datos;//Se indica que archivos se utilizaran
+	FILE *info;//Se indica que archivos se utilizaran
 	FILE *resultados;
-	FILE *inicial;	
-
-
-datos=fopen("informacion.txt","r");//Se abre el archivo con la informacion necesaria
-fscanf(first,"%f %f %f %f %f %i",&t1,&t2,&t3,&t4,&epsilon,&n);//Se guardan los datos del documento
-fclose(first);
 
 
 
-double **T = (double**)malloc(n*sizeof(int*));//Se reserva el espacio de memoria
-	for(i=1;i<=n;i++){//Pimer ciclo for del archivo
-	T[i]=(double*)malloc(n*sizeof(int));
-}	
+info=fopen("informacion.txt","r");//Se abre el archivo con la informacion necesaria
+fscanf(info,"%f %f %f %f %f %i",&l,&r,&u,&d,&N);//Se guardan los datos del documento
+fclose(info);
 
+double **T = (double**)malloc(N*sizeof(int*));//Se reserva el espacio de memoria
+	
 
-inicial=fopen("inicial.txt","w");//Se abre un archivo nuevo
-	for(i=1;i<=n;i++){
-		for(j=1;j<=n;j++){//SE usa un condicional 
-			if(i=1)
-			T[i][j]=t1;
-			else if(i=n)
-			T[i][j]=t2;
-			else if(j=1)
-			T[i][j]=t3;
-			else if(j=n)
-			T[i][j]=t4;
-			else
-			T[i][j]=0;
-			fprintf(inicial,"%lf",T[i][j]);
-			}
-		fprintf(inicial,"\n");
-		}
-fclose(inicial);
-N=n*n;
-
-
-	while(fabs(x)>=epsilon){	
-	if(plus%25==0){
-		sprintf(num,"%i.ods",n);
-		resultados=fopen("resultados.txt","w");//SE imprimen los resultados en el archivo de resulatados
-		}
-
-		for(i=1;i<=n-1;i++)
-	{
-			for(j=1;j<=n-1;j++)
-			{ 
-				a=T[i][j];
-			
-				T[i][j]=((T[i+1][j]+T[i-1][j]+T[i][j+1]+T[i][j-1])/4);
-				t=(T[i][j]-a)/a;
-				if(t<x){
-					x=t;
-				}
-		
-
-
-		}	
-	}
-
-		for(i=1;i<=n-1;i++)
-        {
-                        for(j=1;j<=n-1;j++)
-                        {
-				if(mas%25==0){
-					fprintf(resultados,"%f",T[i][j]);
-					}
-			}
-			if(mas%25==0){
-                                   fprintf(resultados,"\n");
-				}
-			}		
-		mas++;
-		if(mas%25==0){
-		N++;
-		}
-	fclose(resultados);//Se cierra archivo 
-	}
-
-free(T);//Se libera la memoria
+float area[N][N]; //Se inicializa
+	for(y=0; y<N; y++){
+          for(x=0; x<N; x++){
+              area[x][y]=0;
+ 
 }
+        }
+
+	for(y=0;y<N;y++){
+		area[0][y]=u;
+		area[N-1][y]=d;
+	}
+	for(x=0;x<N;x++){
+		area[x][0]=l;
+		area[x][N-1]=r;
+	}
+	while(i<5){ 
+	while(area[2][2]<l-1){ 
+		     char buffer[30]; 
+        while(a<2) {
+
+		
+	for(y=1; y<N-1; y++){
+		for(x=1; x<N-1; x++){
+			area[x][y]=(area[x+1][y]+area[x-1][y]+area[x][y+1]+area[x][y-1])/4;
+		}
+	}
+
+                snprintf(buffer, sizeof(char)*30, "resultados%i", a);//SE van guardando los resultados de cada vez en un archivo diferente
+                a++;
+
+	resultados=fopen(buffer,"w");
+	for(y=0; y<N; y++){
+                for(x=0; x<N; x++){
+			fprintf(resultados, "%f ", area[x][y]);
+		}
+		fprintf(resultados, "\n");
+	}
+	}
+	fclose(resultados);//Se cierra el archivo de resultados
+	a=0;
+	}
+	i++;
+	a=0;
+	}
+free(T);//Se libera la memoria
+	
+return 0;
+}
+
+
+
